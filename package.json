@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
@@ -11,6 +13,7 @@
     "react": "^17.0.1",
     "react-ace": "^9.3.0",
     "react-dom": "^17.0.1",
+    "react-infinite-scroll-component": "^6.0.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
@@ -19,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "react-scripts build && aws s3 rm s3://select10xcloudfront/ --recursive && aws s3 cp ./build s3://select10xcloudfront/ --recursive --acl public-read"
   },
   "eslintConfig": {
     "extends": [
